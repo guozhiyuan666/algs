@@ -1,7 +1,5 @@
 package chapter1exercise3;
 import edu.princeton.cs.algs4.Stack;
-import edu.princeton.cs.algs4.StdOut;
-
 /**
  * Created by Rene Argento
  */
