@@ -1,5 +1,5 @@
 package chapter1exercise3;
-
+//测试用例
 public class ResizingArrayQueueOfStringTest {
     public static void main(String[] args) {
         ResizingArrayQueueOfStrings raqos = new ResizingArrayQueueOfStrings();
