@@ -1,4 +1,10 @@
 package chapter1sec2;
+
+import chapter1sec3.Queue;
+import edu.princeton.cs.algs4.In;
+
+import java.util.Scanner;
+
 //Num11-14
 public class SmartDate {
     private int day;
@@ -19,6 +25,24 @@ public class SmartDate {
         this.month = month;
         this.year = year;
     }
+    //用readInts的模板写一个readDates
+    public static SmartDate[] readDates(){
+        Scanner in = new Scanner(System.in);
+        //In in = new In(string);
+        Queue<SmartDate> dateQueue = new Queue<>();
+        while(in.hasNext()){
+            SmartDate s = new SmartDate(in.next());
+            dateQueue.enqueue(s);
+        }
+
+        int size = dateQueue.size();
+        SmartDate[] datesArray = new SmartDate[size];
+        for(int i = 0; i < size; i++){
+            datesArray[i] = dateQueue.dequeue();
+        }
+        return datesArray;
+    }
+
     public int day(){
         return day;
     }
