@@ -5,7 +5,10 @@ public class StackTest {
         Stack<String> as = new Stack<>();
         as.push("dd");
         as.push("gg");
-        as.pop();
+        System.out.println(as.peek());
         System.out.println(as.pop());
+        System.out.println(as.peek());
+
+
     }
 }
