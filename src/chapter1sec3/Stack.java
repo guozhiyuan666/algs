@@ -16,12 +16,21 @@ public class Stack<Item> {
         first.next = oldFirst;
         N++;
     }
+ //弹出元素
     public Item pop(){
         if(!isEmpty()){
             Item item = first.item;
             first = first.next;
             N--;
             return item;
+        }else{
+            throw new RuntimeException("栈为空");
+        }
+    }
+    //返回栈顶元素的值，但不删除
+    public Item peek(){
+        if(!isEmpty()){
+            return first.item;
         }else{
             throw new RuntimeException("栈为空");
         }
