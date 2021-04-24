@@ -1,5 +1,5 @@
 package chapter1sec2;
-
+//欧几里得算法
 public class GCD {
     //计算两个非负整数p和q的最大公约数：
 
