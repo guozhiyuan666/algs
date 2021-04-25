@@ -11,6 +11,8 @@ public class Bag<Item> implements Iterable<Item>{
     }
     public boolean isEmpty(){ return N == 0;}
     public int size() {return N;}
+
+    //添加一个元素
     public void add(Item item){
         Node oldfirst = first;
         first = new Node();
@@ -18,6 +20,7 @@ public class Bag<Item> implements Iterable<Item>{
         first.next = oldfirst;
         N++;
     }
+
     public Iterator<Item> iterator(){
         return new iteratorOfBag();
     }
