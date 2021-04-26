@@ -1,12 +1,12 @@
 package chapter1sec3;
 
 import edu.princeton.cs.algs4.StdRandom;
-
+import java.util.Iterator;
 /**
  * 练习1.3.35 泛型随机队列
  */
 
-public class RandomQueue<Item> {
+public class RandomQueue<Item> implements Iterable<Item>{
     public final int DEFAULTCAP = 5;
     private int size;
     Item[] arr = (Item[]) new Object[DEFAULTCAP];
@@ -25,6 +25,16 @@ public class RandomQueue<Item> {
         arr[size - 1] = arr[r];
         arr[r] = temp;
     }
+    //将数组洗乱
+    public void shuffle(Item[] a){
+        for(int i = 0; i < size; i++){
+            int r = i + StdRandom.uniform(size - i);
+            Item temp = a[i];
+            a[i] = a[r];
+            a[r] = temp;
+        }
+    }
+
 
     public boolean isEmpty(){ return size == 0; }
     public int size() { return size;}
@@ -49,5 +59,26 @@ public class RandomQueue<Item> {
         randomExchange();
         return arr[size - 1];
     }
+
+    //实现迭代器；
+    public Iterator<Item> iterator(){
+        return new RandomQueueIterator(arr);
+    }
+    public class RandomQueueIterator implements Iterator<Item>{
+        RandomQueueIterator(Item[] a){
+            shuffle(arr);
+        }
+        int current = size;
+        public boolean hasNext(){
+            return current > 0;
+        }
+        public Item next(){
+            Item item;
+            item = arr[current - 1];
+            current--;
+            return item;
+        }
+    }
+
 
 }
