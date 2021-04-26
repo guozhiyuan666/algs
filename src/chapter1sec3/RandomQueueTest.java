@@ -7,10 +7,9 @@ public class RandomQueueTest {
         a.enqueue(2);
         a.enqueue(3);
         a.enqueue(4);
+        for (int i : a) {
+            System.out.println(i);
+        }
 
-        System.out.println(a.dequeue());
-        System.out.println(a.dequeue());
-        System.out.println(a.dequeue());
-        System.out.println(a.dequeue());
     }
 }
