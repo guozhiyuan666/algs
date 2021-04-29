@@ -1,8 +1,12 @@
 package chapter1sec3;
 
-public class Stack<Item> {
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+
+public class Stack<Item> implements Iterable<Item>{
     private int N = 0;
     private Node first;
+    private int popPushTimes;
     private class Node{
         Item item;
         Node next;
@@ -15,6 +19,7 @@ public class Stack<Item> {
         first.item = item;
         first.next = oldFirst;
         N++;
+        popPushTimes++;
     }
  //弹出元素
     public Item pop(){
@@ -22,6 +27,7 @@ public class Stack<Item> {
             Item item = first.item;
             first = first.next;
             N--;
+            popPushTimes++;
             return item;
         }else{
             throw new RuntimeException("栈为空");
@@ -36,4 +42,33 @@ public class Stack<Item> {
         }
     }
 
+    //练习1.3.47 可连接的栈，连接两个同类对象，catenation
+    public void catenation(Stack<Item> a) {
+        while(!a.isEmpty()){
+            this.push(a.pop());
+        }
+    }
+    //快速出错迭代器，当在迭代中pop()或push()时，会抛出异常
+
+    public Iterator<Item> iterator(){
+        return new StackIterator();
+    }
+    public class StackIterator implements Iterator<Item>{
+        int jugePopPush  = popPushTimes;
+        Node current = first;
+        public boolean hasNext(){
+            if(jugePopPush !=  popPushTimes){
+                throw new ConcurrentModificationException("迭代时尝试删除元素");
+            }
+            else{
+                return current != null;
+            }
+        }
+        public Item next(){
+            Item item;
+            item = current.item;
+            current = current.next;
+            return item;
+        }
+    }
 }
