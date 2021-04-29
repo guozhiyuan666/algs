@@ -10,6 +10,7 @@ public class Queue<Item> {
     }
     public boolean isEmpty(){return N == 0;}
     public int size() {return N;}
+
     public void enqueue(Item item){
         Node oldLast = last;
         last = new Node();
@@ -28,5 +29,10 @@ public class Queue<Item> {
         }else{
             throw new RuntimeException("队列为空");
         }
+    }
+    //练习1.3.47 可连接的队列
+    public void catenation(Queue<Item> a){
+        while(!a.isEmpty())
+            this.enqueue(a.dequeue());
     }
 }
