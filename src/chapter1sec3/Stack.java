@@ -17,8 +17,8 @@ public class Stack<Item> implements Iterable<Item>{
     }
 
     Stack(){}
-/*构造函数，传入参数s，得到s的一个个副本,第一种解法。
-    public Stack(Stack<Item> s){ /
+//构造函数，传入参数s，得到s的一个个副本,第一种解法。
+    public Stack(Stack<Item> s){
         Stack<Item> t1 = new Stack<>();
         for(Item i : s){
             t1.push(i);
@@ -27,9 +27,9 @@ public class Stack<Item> implements Iterable<Item>{
             this.push(j);
         }
     }
- */
 
-/*????
+
+/*
     public Stack(Stack<Item> s){
         if(s.first != null){
             this.first = new Node(s.first);
