@@ -36,7 +36,7 @@ public class Steque<Item> {
         Node current = first;
         item = current.item;
         first = first.next;
-        N++;
+        N--;
         return item;
     }
 
@@ -52,5 +52,11 @@ public class Steque<Item> {
         }
         N++;
     }
+    //练习1.3.47 可连接的steque
+    public void catenation(Steque<Item> a){
+        while(!a.isEmpty())
+            this.enqueue(a.pop());
+    }
+
 
 }
