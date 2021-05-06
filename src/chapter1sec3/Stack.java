@@ -1,5 +1,5 @@
 package chapter1sec3;
-
+//merge是选择错了版本，以后在改进一下
 public class Stack<Item> {
     private int N = 0;
     private Node first;
