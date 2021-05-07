@@ -17,14 +17,14 @@ public class QuickFindUF {
     public int count(){
         return count;
     }
-
     public int find(int p){
         return uf[p];
     }
+
     public void union(int p, int q){
         int pID = find(p);
         int qID = find(q);
-        if(qID == pID){return;}
+        if(qID == pID) {return;}
         for(int j = 0; j < uf.length; j++){
             if(uf[j] == pID){
                 uf[j] = qID;

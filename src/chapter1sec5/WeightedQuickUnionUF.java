@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.StdIn;
 
 public class WeightedQuickUnionUF {
     int[] uf;
-    int[] sz;
+    int[] sz;//加权，保证将小树连接到大树
     int count;
 
     WeightedQuickUnionUF(int N){
@@ -18,7 +18,6 @@ public class WeightedQuickUnionUF {
         }
         count = N;
     }
-
     public int find(int p){
         while(p != uf[p]){
             p = uf[p];
@@ -31,10 +30,11 @@ public class WeightedQuickUnionUF {
     public int count(){
         return count;
     }
+
     public void union(int p, int q){
         int pRoot = find(p);
         int qRoot = find(q);
-        if(sz[pRoot] < sz[qRoot]) { uf[pRoot] = qRoot; sz[qRoot] += sz[pRoot];} //把qroot接到proot上
+        if(sz[pRoot] < sz[qRoot]) { uf[pRoot] = qRoot; sz[qRoot] += sz[pRoot];} //把pRoot接到qRoot上
         else                      { uf[qRoot] = pRoot; sz[pRoot] += sz[qRoot];}
         count--;
     }

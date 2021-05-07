@@ -17,7 +17,6 @@ public class QuickUnionUF {
     public int count(){
         return count;
     }
-
     public int find(int p){
         //找出根节点，分量名称
         while(p != uf[p]){
@@ -25,6 +24,7 @@ public class QuickUnionUF {
         }
         return p;
     }
+
     public void union(int p, int q) {
         int pRoot = find(p);
         int qRoot = find(q);
