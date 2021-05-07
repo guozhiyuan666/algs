@@ -8,6 +8,7 @@ public class SortCompare {
         Stopwatch timer = new Stopwatch();
         if(alg.equals("Selection")) Selection.sort(a);
         if(alg.equals("Insertion")) Insertion.sort(a);
+        if(alg.equals("Shell")) Insertion.sort(a);
         return timer.elapsedTime();
     }
     public static double timeRandomInput(String alg, int N, int M){//M个随机的大小为N的数组，排序M次
@@ -25,11 +26,13 @@ public class SortCompare {
     public static void main(String[] args) {
         String alg1 = args[0];
         String alg2 = args[1];
-        int N = Integer.parseInt(args[2]);
-        int M = Integer.parseInt(args[3]);
+        String alg3 = args[2];
+        int N = Integer.parseInt(args[3]);
+        int M = Integer.parseInt(args[4]);
         double time1 = timeRandomInput(alg1, N, M);
         double time2 = timeRandomInput(alg2, N, M);
-        System.out.printf("t2比t1快，%.2f", time1 / time2);
+        double time3 = timeRandomInput(alg3, N, M);
+        System.out.printf("选择：%f, 插入:%f,希尔：%f", time1, time2,time3);
 
     }
 }
