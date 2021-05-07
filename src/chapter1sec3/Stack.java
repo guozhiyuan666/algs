@@ -49,7 +49,6 @@ public class Stack<Item> implements Iterable<Item>{
         }
     }
     //快速出错迭代器，当在迭代中pop()或push()时，会抛出异常
-
     public Iterator<Item> iterator(){
         return new StackIterator();
     }
