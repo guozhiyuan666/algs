@@ -2,7 +2,7 @@ package chapter1sec2;
 
 import edu.princeton.cs.algs4.Date;
 
-public class Transaction {
+public class Transaction implements Comparable<Transaction>{
     private String name;
     private SmartDate when;
     private double amount;
@@ -18,19 +18,13 @@ public class Transaction {
         this.when = when;
         this.amount = amount;
     }
-    public String who(){
-    return name;
-    }
-    public SmartDate when()
-    {
-        return when;
-    }
-    public double amount(){
-        return amount;
-    }
+    public String who()      { return name; }
+    public SmartDate when()  { return when; }
+    public double amount()   { return amount; }
     public String toString(){
         return " " + name + " " + when + " " + amount;
     }
+
     public boolean equals(Object x){
         if(this == x) return true;
         if(x == null) return false;
@@ -40,7 +34,12 @@ public class Transaction {
         if(this.when != that.when) return false;
         if(this.amount != that.amount) return false;
         return true;
-
+    }
+    //实现Comparable接口，使交易可按照金额大小比较
+    public int compareTo(Transaction a){
+        if(this.amount > a.amount) {return 1;}
+        if(this.amount < a.amount) {return -1;}
+        return 0;
     }
 
 }
