@@ -23,7 +23,7 @@ public class Selection {
         return true;
     }
     /**
-    public static void sort(Comparable[] a){//选择排序，遍历数组最小的与前面的交换，每比较一次就交换
+    public static void sort(Comparable[] a){//选择排序，遍历数组最小的与前面的交换，每比较一次就交换，这就是冒泡排序啊。。
         for(int i = 0; i < a.length; i++){
             for(int j = i + 1; j < a.length; j++){
                 if(!less(a[i],a[j])){
