@@ -10,14 +10,14 @@ public class SmartDate {
     private int day;
     private int month;
     private int year;
-    public SmartDate(String dmy){
+    public SmartDate(String dmy){ //构造函数，参数为字符串
         String[] result;
         result= dmy.split("/");
         this.day = Integer.parseInt(result[0]);
         this.month = Integer.parseInt(result[1]);
         this.year = Integer.parseInt(result[2]);
     }
-    public SmartDate(int day, int month, int year)
+    public SmartDate(int day, int month, int year)//构造函数，参数为整数
     {
         if(isValied(day, month, year)) throw new RuntimeException("无效日期");
 
@@ -52,7 +52,8 @@ public class SmartDate {
     public int year(){
         return year;
     }
-    private boolean isValied(int day, int month, int year){
+
+    private boolean isValied(int day, int month, int year){//检查是否是无效日期
         boolean valid = false;
         if(month > 12) return true;
 
@@ -63,6 +64,17 @@ public class SmartDate {
 
     public String toString(){
         return " " + this.year + "/" + this.month + "/" + this.day;
+    }
+
+    public boolean equals(Object x){
+        if(this == x)                       return true;                          //内存地址相同             true
+        if(x == null)                       return false;                         //x为null                false
+        if(x.getClass() != this.getClass()) return false;                         //x和this不是一个类的对象   false
+        SmartDate that = (SmartDate) x;                                           //x和this都是SmartDate的对象
+        if(this.year != that.year)          return false;                         //检查x和this这两个对象的状态是否相同
+        if(this.month != this.month)        return false;
+        if(this.day != this.day)            return false;
+        return true;
     }
 
 }

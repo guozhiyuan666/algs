@@ -12,16 +12,16 @@ public class Merge {
             aux[k] = a[k];
         }
         for(int k = lo; k <= hi; k++){
-            if(i > mid)                        a[k] = aux[j++];  //左边数组*********************
-            else if(j > hi)                    a[k] = aux[i++];  //右边数组已经排序完成，全部放进了a[]
-            else if(less(aux[j], aux[i]))      a[k] = aux[j++];  //aux[j]比aux[i]小，把aux[j]赋值给a[k],然后j++
-            else                               a[k] = aux[i++];  //                 把aux[i]赋值给a[k],然后i++
+            if      (i > mid)                   a[k] = aux[j++];  //左边数组*********************
+            else if (j > hi)                    a[k] = aux[i++];  //右边数组已经排序完成，全部放进了a[]
+            else if (less(aux[j], aux[i]))      a[k] = aux[j++];  //aux[j]比aux[i]小，把aux[j]赋值给a[k],然后j++
+            else                                a[k] = aux[i++];  //                 把aux[i]赋值给a[k],然后i++
         }
+        show(a, lo, mid, hi);
     }
     public static boolean less(Comparable v, Comparable w){
         return v.compareTo(w) < 0;
     }
-
     /*自顶向下的递归归并*/
     public static void sort(Comparable[] a){
         int N = a.length;
@@ -35,16 +35,21 @@ public class Merge {
         sort(a, mid + 1, hi);
         merge(a, lo, mid, hi);
     }
+
+    public static void show(Comparable[] a, int lo, int mid, int hi){
+        System.out.print(lo + " " + mid + " " + hi + " ");
+        for(int i = 0; i < a.length; i++){
+            System.out.print( a[i] + " ");
+        }
+        System.out.println("\n");
+    }
+
     /*测试主函数*/
     public static void main(String[] args) {
-        Integer[] a = {9,8,7,52,1,6,4,8,6,2,9,5,6,969,5,6,6,8,6};
-        PrintArray<Integer> show = new PrintArray<>();
-        show.print(a);
-
+        Character[] a = {'E','A','S','Y','Q','U','E','S','T','I','O','N'};
         Merge.sort(a);
-
+        PrintArray<Character> show = new PrintArray<>();
         show.print(a);
-
     }
 
 }

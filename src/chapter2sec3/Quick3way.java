@@ -9,13 +9,20 @@ public class Quick3way {
     public static void sort(Comparable[] a){
         sort(a, 0, a.length - 1);
     }
+    /*
+    维护三个指针
+    lo -- (lt-1) :小于key的元素
+    i -- gt      :未确定的元素
+    (gt+1) -- hi :大于key的元素
+    lt(=i) -- gt     :等于key的元素
+     */
     public static void sort(Comparable[] a, int lo, int hi){
         if(lo >= hi) return;
         int lt = lo, i = lo + 1, gt = hi;
         Comparable v = a[lo];
         while(i <= gt){
             int flag = v.compareTo(a[i]);
-            if(flag > 0) exch(a, i, lt++);
+            if(flag > 0) exch(a, i++, lt++);
             else if(flag < 0) exch(a, i, gt--);
             else i++;
         }

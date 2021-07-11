@@ -10,6 +10,4 @@ public class PrintArray<Item>{
         }
         System.out.print("\n");
     }
-
-
 }

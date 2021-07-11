@@ -14,6 +14,11 @@ public class Quick {
         sort(a, lo, j - 1);
         sort(a, j + 1, hi);
     }
+
+    /*
+    维护两个指针，左指针向右扫描找比a[lo]大的
+                右指针向左扫描找比a[lo]小的
+     */
     public static int partition(Comparable[] a, int lo, int hi){
         int i = lo, j = hi + 1;
         Comparable key = a[lo];
