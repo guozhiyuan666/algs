@@ -9,7 +9,7 @@ public class DynamicMedianFinding{
     MaxPQ<Double> maxPQ;//比中位数小的放在这
     MinPQ<Double> minPQ;//比中位数大的放在这
     DynamicMedianFinding(){
-        maxPQ = new MaxPQ<>();
+        maxPQ = new MaxPQ<>(20);
         minPQ = new MinPQ<>();
     }
 

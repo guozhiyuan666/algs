@@ -6,7 +6,7 @@ public class Num1 {
                           '*','*','I','*','T','*','Y','*',
                           '*','*','Q','U','E','*',
                           '*','*','U','*','E'};
-        MaxPQ<Character> pq = new MaxPQ<>();
+        MaxPQ<Character> pq = new MaxPQ<>(20);
         for(char i : in){
             if(i == '*'){
                 System.out.print(pq.delMax() + " ");
