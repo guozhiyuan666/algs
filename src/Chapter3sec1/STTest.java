@@ -1,5 +1,6 @@
 package Chapter3sec1;
 
+import chapter3sec4.SeparateChainingHashST;
 import edu.princeton.cs.algs4.ST;
 
 import java.util.Scanner;
@@ -21,7 +22,8 @@ public class STTest{//运行程序后用户输入, CTRL + D ,或者控制台 < S
 
     public static void main(String[] args) {
         //ST<String, Integer> st = new ST<>();
-        SequentialSearchST<String, Integer> st = new SequentialSearchST<>();
+        //SequentialSearchST<String, Integer> st = new SequentialSearchST<>();
+        SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<>();
         Scanner in = new Scanner(System.in);  //等待用户输入，或者将文件作为输入流
 
         for(int i = 0; in.hasNext(); i++){

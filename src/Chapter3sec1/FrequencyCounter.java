@@ -1,5 +1,7 @@
 package Chapter3sec1;
 
+import chapter3sec4.LinearProbingHashST;
+import chapter3sec4.SeparateChainingHashST;
 import edu.princeton.cs.algs4.ST;
 //import edu.princeton.cs.algs4.StdIn;
 
@@ -14,7 +16,10 @@ public class FrequencyCounter {
         //ST<String,Integer> st = new ST<>();
         //SequentialSearchST<String, Integer> st = new SequentialSearchST<>();
         //BinarySearchST<String,Integer> st = new BinarySearchST<>(1000000);
-        BST<String,Integer> st = new BST<>();
+        //SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<>();
+        LinearProbingHashST<String, Integer> st = new LinearProbingHashST<>();
+        //BST<String,Integer> st = new BST<>();
+
         Scanner in = new Scanner(System.in);
 
         while(in.hasNext()){//  < **.txt  在控制台输入文件名，将文件作为输入流
